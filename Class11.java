@@ -1,9 +1,8 @@
 // hw10_11, 利用父類別變數存取子類別成員的練習(一)
 class CShape // 父類別CShape
 {
-    public double area()
-    {
-        return 0.0;
+    public double area(){
+        return 0; // if it's returnType method then it will been had return statemeents in its statement area
     }
 }
 
@@ -60,20 +59,25 @@ class CTriangle extends CShape
 public class Class11 {
 
 //(e)part-judge max object method
+    //it's a internal method
     public static CShape findMax(CShape... shapes) // CShape is a existed class name, shapes is a self-setted argument name and it's a variable
+                                                   // Class... self-definedName = plural object's "array"###
+                                                   // ### used static method so after here if we want to use this method can directly took it
     {
-        if(shapes.length == 0)
-        {
+        if(shapes.length == 0) // ### suggest to code these to prevent(預防) empty collection(空集合) could be solved
+        {// .length: is a default property in java to used by array problem
             return null;
         }
     
-    CShape maxShape = shapes[0];
-    for(CShape shape : shapes)
+    CShape maxShape = shapes[0]; // it liked sum variable in loop grammar, meaning got initial array value, ### ex: arrayName[initialNumber]
+    for(CShape shape : shapes) /*for (CShape shape : shapes)：這是一個增強型的 for 循環，用於遍歷 shapes 陣列中的每個 CShape 物件。 在每次迭代中，當前的 CShape 物件儲存在名為 shape 的變數中。 */
+        //shape = corrent obj, maxShape = max obj, ":" is stronger loop sign to compare all obj in same array collection
         {
-            if (shape.area() > maxShape.area())
-                maxShape = shape;
+            if (shape.area() > maxShape.area()) // if corrent shape more than max shape then max shape will be replaced
+                // shape and maxShape took area() method
+                maxShape = shape; // replace
         }
-    return maxShape;
+    return maxShape; // return value
     }
 
 

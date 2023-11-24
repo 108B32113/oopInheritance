@@ -1,0 +1,9 @@
+puzzle:
+01 can't output value --solved
+11 way of build findMax method --solved: use array to save all obj and using loop and ":" sign to build needed methods
+12 extended by q11, build object directly --solved: same to q11
+20 where's 例題19 --solved: typied wrong by writter
+
+notice:
+13 built constructor will notice their parameters
+17 notice to get inheritance that inheritance will setting works --used "extends" could has not to obbey contract but please notice does it be overrided?

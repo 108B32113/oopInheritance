@@ -1,47 +1,74 @@
-class Namecard
+class Car
 {
-    private String name;
-    private String address;
-    private Phone data;
+    protected String owner; // Just transfor between super... and sub... 
+    protected String id;
 
-    // (a)
-    private class Phone{ // there's name named about upon private Phone data that Phone's word
-    // there's a private class that means it can be use only by its external class
-    // if it been setten get...method that it can visit private member
-        
-        String company;
-        String cell;
-
-        // (b)
-        Phone(String s1, String s2){ // company = s1 = new company value in Phone class...
-            company = s1;
-            cell = s2;
-        }
+    Car(String own, String s)
+    {
+        // Enable(v.) to no initial value
+        owner = own;
+        id = s;
     }
 
-    public Namecard(String name, String address, String company, String cell) {
-        // build it initial buiding method
-        this.name = name;
-        this.address = address;
-        this.data = new Phone(company, cell); //###
+    final void show()
+    {
+        System.out.println("車主姓名:" + owner);
+        System.out.println("車牌號碼:" + id);
     }
 
-    // (c)
-    public void show(){ // change to under just setted object format
-        System.out.println("好友姓名:" + name);
-        System.out.println("聯絡地址:" + address);
-        System.out.println("公司電話:" + data.company);
-        System.out.println("手機號碼:" + data.cell);
+    // new show() and no final
+    void newShow()
+    {
+        System.out.println("車主姓名:" + owner);
+        System.out.println("車牌號碼:" + id);
+    }
+
+    //(a)
+    void CRectangle(String own, String s)
+    {
+        owner = own;
+        id = s;
+    }
+}
+//(b)
+class CColor extends Car
+{
+    public String color;
+
+// constructor for object mycar's argument
+    CColor(String own, String s, String c)
+    {
+        super(own, s);
+        color = c;
+    }
+
+//(c)
+    CColor(String own, String s)
+    {
+        super(own, s);
+    }
+
+//(d)&
+//(e) 第一次執行時 因為父類別的類型是final 所以不可改寫 ==> 新增一個newShow()函數 給此調用
+    public void newShow() // unenable to override final data
+    {
+        System.out.println("車主姓名:" + owner);
+        System.out.println("車牌號碼:" + id);
+        System.out.println("車身顏色:" + color);
     }
 }
 
-public class class17 {
-    public static void main(String args[]){
-        // (d)
-        Namecard first = new Namecard("Andy", "123City", "2345-6789", "0911-336600");
-                                      //can use this way to define all variable about the new object value in same class
-                                      //### there just has Namecard's variable property but no builded Namecard's initial mathod of building
-                                      //### It doesn't been setted initial so it may be setted a constructor named Namecard upon show() in Namecard class
-        first.show();
-    }
+public class Class17 {
+    public static void main(String args[])
+    {
+        CColor mycar = new CColor("Riaan" , "A1-2345", "Black");
+        mycar.newShow();
+    } 
 }
+
+
+
+
+
+
+//setted of final that class can't be overriding just can build a new method

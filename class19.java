@@ -1,50 +1,29 @@
-class Data
+class CRectangle
 {
-    private String name;
-    private Test score;
+    protected int length;
+    protected int width;
 
-    // (a)
-    private class Test{ //name to use class name and not use "score"
-        int english;
-        int math;
-
-        // (b)
-        Test(int eng, int m){
-            english = eng;
-            math = m;
-        }
-
-        // (c)
-        double avg(){ // it does't been setted a initial because it's not a variable, it's just a method to calculate
-            return (english + math) / 2;
-        }
+    //(a)
+    CRectangle(int l, int w)
+    {
+        length = l;
+        width = w;
     }
 
-    Data(String name, int english, int math){
-        this.name = name; // means its initial is itself word
-        this.score = new Test(english, math); // call internal class and takes initial value must to use its variable name and not its class name
-    }
-
-    // (d)
-    void show(){
-        System.out.println("學生姓名:" + name);
-        System.out.println("英文成績:" + score.english);
-        System.out.println("數學成績:" + score.math);
-        System.out.println("平均成績:" + score.avg());
+    int area()
+    {
+        return length * width;
     }
 }
 
-public class class19 {
-    public static void main(String args[]){
-        Data stu = new Data("Annie", 85, 92); // taked initial value for object
-        stu.show();
+public class Class19 {
+    public static void main(String args[])
+    {
+        //(b)
+        CRectangle rect = new CRectangle(2, 6);
+
+        //(c)
+        System.out.println("length=" + rect.length + ", " + "width=" + rect.width + ", " + "area=" + rect.area()); // directly called method and the method can not to built by variable in class before
+            // call variable be use obj".variable or method name"
     }
 }
-
-
-
-
-
-
-
-//### all class member if it will be use then it must be setted initial value
